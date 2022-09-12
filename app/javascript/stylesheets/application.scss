@@ -1,2 +1,9 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+.alert-notice {
+  background-color: rgba($color: #808080, $alpha: 0.2);
+}
+.alert-alert {
+  background-color: rgba($color: #808080, $alpha: 0.2);
+}
