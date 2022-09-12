@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+        <div class="mx-auto col-10 col-sm-8 col-lg-6 col-xl-5">
+            <p>
+                <%= render 'shared/flash_message' %>
+            </p>
+
+            <h1 class="">
+                welcome to
+                <i class="fas fa-book"></i>
+                <strong>
+                    Bookers !!
+                </strong>
+            </h1>
+            <p>
+                In
+                <i class="fas fa-book"></i>
+                <strong>
+                    Bookers,
+                </strong>
+                <br/>
+                you can share and exchange your opinions , inpressions , and emotions about various books!
+            </p>
+            <div class="btn-wrapper col-10 mx-auto">
+                <div class="row">
+                    <%= link_to "Log in", new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
+                </div>
+                <div class="row">
+                    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
