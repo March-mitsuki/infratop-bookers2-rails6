@@ -4,17 +4,17 @@ class BookCommentsController < ApplicationController
     comment = current_book.book_comments.new(comment_params)
     comment.user_id = current_user.id
     comment.save
-    redirect_back fallback_location: books_path, status: 303
+    redirect_back fallback_location: books_path
   end
 
   def destroy
     comment = BookComment.find(params[:id])
     if comment.user.id == current_user.id
       comment.destroy
-      redirect_back fallback_location: books_path, status: 303  
+      redirect_back fallback_location: books_path
       return  
     else
-      redirect_back fallback_location: books_path, status: 303
+      redirect_back fallback_location: books_path
       return
     end
   end

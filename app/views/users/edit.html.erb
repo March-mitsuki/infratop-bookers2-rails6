@@ -17,7 +17,7 @@
             <h1>
                 User info
             </h1>
-            <%= form_with model: @user, url: user_path(@user.id), method: :patch do |f| %>
+            <%= form_with model: @user, method: :patch do |f| %>
                 <label class="col-12">
                     Name
                     <%= f.text_field :name, class: "form-control", value: @user.name %>

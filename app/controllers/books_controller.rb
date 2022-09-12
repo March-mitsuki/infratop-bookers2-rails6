@@ -14,7 +14,7 @@ class BooksController < ApplicationController
       @new_book = Book.new
       @user = User.find(current_user.id)
       @books = Book.all
-      render :index, status: 303
+      render :index
     end
   end
 
@@ -36,24 +36,24 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
 
     if @book.user.id != current_user.id
-      redirect_to books_path, status: 303
+      redirect_to books_path
       return
     end
 
     if @book.destroy
-      redirect_to books_path, status: 303, flash: {success: "destory book successfully"}
+      redirect_to books_path, flash: {success: "destory book successfully"}
     else
       @new_book = Book.new
       @user = User.find(current_user.id)
       @books = Book.all
-      render :index, status: 303
+      render :index
     end
   end
 
   def edit
     @book = Book.find(params[:id])
     if @book.user.id != current_user.id
-      redirect_to books_path, status: 303
+      redirect_to books_path
       return
     end
   end
@@ -62,14 +62,14 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
 
     if @book.user.id != current_user.id
-      redirect_to books_path, status: 303
+      redirect_to books_path
       return
     end
 
     if @book.update(book_params)
       redirect_to book_path(params[:id]), flash: {success: "update book successfully"}
     else
-      render :edit, status: 303
+      render :edit
     end
   end
 

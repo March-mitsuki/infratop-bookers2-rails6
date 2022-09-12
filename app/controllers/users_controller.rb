@@ -22,14 +22,14 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.id != current_user.id
-      redirect_to user_path(current_user.id), status: 303
+      redirect_to user_path(current_user.id)
       return
     end
 
     if @user.update(user_params)
-      redirect_to user_path(params[:id]), status: 303, flash: {success: "update user successfully"}
+      redirect_to user_path(params[:id]), flash: {success: "update user successfully"}
     else
-      render :edit, status: 303
+      render :edit
     end
   end
 
