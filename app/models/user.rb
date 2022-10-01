@@ -10,6 +10,10 @@ class User < ApplicationRecord
   has_many :books, foreign_key: "user_id", dependent: :destroy
   has_many :book_comments, foreign_key: "user_id", dependent: :destroy
   has_many :favorites, foreign_key: "user_id", dependent: :destroy
+  has_many :follower, foreign_key: "followed_id", class_name: "Relationship", dependent: :destroy
+  has_many :follower_users, through: :follower, source: :follower
+  has_many :followed, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
+  has_many :followed_users, through: :followed, source: :followed
 
   # validates
   validates :name, uniqueness: true, length: { 
