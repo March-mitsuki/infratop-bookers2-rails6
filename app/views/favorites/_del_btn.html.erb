@@ -1,0 +1,4 @@
+<%= link_to book_favorites_path(favorate.book), method: :delete, remote: true, class: "text-decoration-none" do %>
+  <i class="fas fa-heart" style="color: red"></i>
+  <span style="color: red"><%= favorate.book.favorites.count %></span>
+<% end %>
