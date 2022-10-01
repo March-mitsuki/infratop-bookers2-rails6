@@ -1,0 +1,67 @@
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="row offset-md-1">
+      <div>
+        <%= render "shared/search_form" %>
+      </div>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <% if @results_type == 1 %>
+              <th>image</th>
+              <th>Title</th>
+              <th>Opinion</th>
+            <% elsif @results_type == 2 %>
+              <th>image</th>
+              <th>name</th>
+            <% else %>
+              <th>
+                opps?!
+              <th>
+            <% end %>
+          </tr>
+        </thead>
+        <tbody>
+          <% if @results_type == 1 %>
+            <% @results.each do |book| %>
+              <tr>
+                <td>
+                  <%= link_to user_path(book.user.id) do %>
+                    <%= image_tag book.user.get_profile_image(50,50) %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to book_path(book.id), class: "text-decoration-none" do %>
+                    <%= book.title %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= book.body %>
+                </td>
+              </tr>
+            <% end %>
+          <% elsif @results_type == 2 %>
+            <% @results.each do |user| %>
+              <tr>
+                <td>
+                  <%= link_to user_path(user.id) do %>
+                    <%= image_tag user.get_profile_image(50,50) %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= user.name %>
+                </td>
+              </tr>
+            <% end %>
+          <% else %>
+            <tr>
+              <td>
+                Something wrong, please try again
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

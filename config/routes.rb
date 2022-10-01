@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: "books#home"
-  get "home/about", to: "books#about", as: "about"
+  get "/home/about", to: "books#about", as: "about"
+  post "/search", to: "searches#search", as: "search"
 
   devise_for :users
 

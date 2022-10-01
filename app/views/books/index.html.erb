@@ -5,6 +5,9 @@
         </div>
 
         <div class="col-md-8 offset-md-1">
+            <div>
+                <%= render "shared/search_form" %>
+            </div>
             <% if @book %>
                 <% if @book.errors.any? %>
                     <div class="alert alert-danger">
