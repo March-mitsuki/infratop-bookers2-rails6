@@ -1,0 +1,16 @@
+<div class="d-flex justify-content-between my-2" id=<%= "user-comment-"+item.id.to_s %> >
+  <%= link_to user_path(item.user_id) do %>
+    <%= image_tag item.user.get_profile_image(50,50) %>
+    <br/>
+    <%= item.user.name %>
+  <% end %>
+  <span><%= item.comment %></span>
+  <% if item.user.id == current_user.id %>
+    <div>
+      <%= link_to "Destroy", book_book_comment_path(item.book.id, item.id), method: :delete, remote: true, class: "btn btn-sm btn-danger" %>
+    </div>
+  <% else %>
+    <div>
+    </div>
+  <% end %>
+</div>
